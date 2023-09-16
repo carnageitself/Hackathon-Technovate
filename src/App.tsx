@@ -9,10 +9,10 @@ function App()  {
   return (
     <div className="App ">
     <BrowserRouter>
-    <Header/>
+  
       <Routes>
       
-        <Route  path='/' element={< Home />}></Route>
+        <Route  path='/' element={  <> <Header/>< Home /></>}></Route>
         <Route  path='/signin' element={< SignInSide />}></Route>
         <Route  path='/signup' element={< SignUp />}></Route>
         {/* <Route exact path='/admin' element={< Admin />}></Route> */}
