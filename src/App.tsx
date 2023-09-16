@@ -1,19 +1,21 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './pages/Home.jsx'
-import Header from './component/Header'
+import Header from "./component/Header";
+import Home from "./pages/Home";
+import SignInSide from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 function App()  {
 
   return (
     <div className="App ">
     <BrowserRouter>
-     <Header/>
+    <Header/>
       <Routes>
       
         <Route  path='/' element={< Home />}></Route>
-        {/* <Route exact path='/login' element={< Login />}></Route>
-        <Route exact path='/register' element={< Register />}></Route>
-        <Route exact path='/admin' element={< Admin />}></Route> */} 
+        <Route  path='/signin' element={< SignInSide />}></Route>
+        <Route  path='/signup' element={< SignUp />}></Route>
+        {/* <Route exact path='/admin' element={< Admin />}></Route> */}
           <Route path="*" element={<h1>no Page</h1>} />
       </Routes>
    
