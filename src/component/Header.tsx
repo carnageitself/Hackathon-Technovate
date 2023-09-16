@@ -3,6 +3,7 @@ import logo from '../assets/logo.jpg'
 import Hamburger from 'hamburger-react'
 import MobileSidebar from '../component/MobileSidebar'
 import { AuthContext } from '../context/authContext'
+import { Link } from 'react-router-dom'
 
 
 function Header() {
@@ -12,7 +13,7 @@ function Header() {
   
     
     return (
-        <div className='w-screen sm:h-32 h-24 bg-[#FEFEFF] sm:px-28 px-3  flex justify-between items-center'>
+        <div className='w-screen sm:h-24 h-20 bg-[#FEFEFF] sm:px-28 px-3  flex justify-between items-center'>
             <img src={logo} alt="" className='h-20' />
             <div className="sm:hidden flex">
                     <Hamburger size={23} color="#EE619C" rounded onToggle={toggled => {
@@ -24,9 +25,9 @@ function Header() {
                         }
                     }} /></div>
             <ul className=' font-normal  font-sans sm:flex hidden gap-10 text-gray-700  items-center'>
-                <li className='border-b-2 font-semibold text-xl border-[#EE619C] w-20 flex justify-center'> <a href="/"> Home</a></li>
+                <li className='border-b-2 font-semibold text-xl border-[#EE619C] w-20 flex justify-center'> <Link to="/"> Home</Link></li>
 
-                <li className='border-b-2 font-semibold text-xl border-[#EE619C] w-20 flex justify-center'> <a href="/about"> About</a></li>
+                <li className='border-b-2 font-semibold text-xl border-[#EE619C] w-20 flex justify-center'> <Link to="/about"> About</Link></li>
 
                 { !currentUser ?
                 (

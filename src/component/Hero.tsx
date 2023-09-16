@@ -10,7 +10,7 @@ function Hero() {
     <div className=" p-8 flex flex-col sm:gap-4 gap-2 justify-center items-center sm:text-left text-center">
         <h1 className='font-bold sm:text-4xl text-xl    '>Your organs can save up to eight lives.</h1>
         <span className='font-normal text-gray-600 sm:text-sm text-xs'>The gift of life. Give life, give hope, be an organ donor.</span>
-       {<Link to={ currentUser ? "/profile" : "/login"}>
+       {<Link to={ currentUser ? "/profile" : "/signin"}>
         <button className='flex justify-center items-center sm:px-5 sm:py-3 px-3 py-1 transition-all duration-300 bg-[#EE619C] font-bold text-white rounded-full hover:bg-white hover:text-[#EE619C] hover:border hover:border-[#EE619C]'>Register</button>
         </Link>}
     </div>
