@@ -1,16 +1,28 @@
-import {useState,useContext} from "react";
+import {useState,useContext, useEffect} from "react";
 import CheckBox from "../component/Checkbox";
 import {
     doc,
     setDoc,
     serverTimestamp,
-    updateDoc  } from "firebase/firestore";
+    updateDoc,  
+    getDoc} from "firebase/firestore";
     import {db} from '../firebase'
 import { AuthContext } from "../context/authContext";
 // import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 
 const Profile: React.FC = () => {
+  const [user,setUser]=useState({})
     const {currentUser} =useContext(AuthContext)
+
+    useEffect(()=>{
+      const unsub=async()=>{
+await getDoc(doc(db, "users", currentUser.uid)).then((data)=>{
+  setUser(data.data());
+  
+})
+      }
+      unsub()
+    },[])
 
     const [data, setData] = useState({});
   const inputs = [
@@ -19,6 +31,7 @@ const Profile: React.FC = () => {
         label: "First Name",
         type: "text",
         placeholder: "john_doe",
+        
       },
       {
         id: "Middle Name",
@@ -158,8 +171,10 @@ const Profile: React.FC = () => {
    "I agree to the privacy policy"
   ];
 
+const [show,setShow] =useState(false)
 
-  const handleInput = (e:any) => {
+
+  const handleInput = (e) => {
     const id = e.target.id;
     const value = e.target.value;
 
@@ -168,29 +183,22 @@ const Profile: React.FC = () => {
 
   };
 
-const  handleChange = (e:any,name:String) => {
-    console.log(e,name);
-    
-}
   const handleAdd = async(e: any) => {
     e.preventDefault();
-    console.log('click');
-    console.log(e.target[22].checked);
-  var a : string[]=[]
-    Array(9).fill("").forEach((item,index)=>{
-if (e.target[index].checked){
-a.push(checkbox[index])
-}
-    })
-    
-    console.log(a,"checkbox");
+   
     
 
     const res = await setDoc(doc(db, "users", currentUser.uid), {
         donar:{...data,},
         timeStamp: serverTimestamp(),
-        itemChecked:a
-      },{merge:true});
+       
+      },{merge:true}).then((data)=>{
+window.alert("Register As donar Successfully")
+
+      }).catch((err)=>{
+        console.log(err,"error");
+        
+      })
     console.log(res);
     
   };
@@ -201,7 +209,7 @@ a.push(checkbox[index])
         <div className=" top flex justify-center items-center text-black">
           <h1 className=" font-bold text-2xl ">Organ Donation Form</h1>
         </div>
-        <div className="bottom">
+    {  !user.donar?  (<div className="bottom">
           <div className="right">
             <form onSubmit={(e) => handleAdd(e)}>
               {inputs.map((input) => (
@@ -211,6 +219,7 @@ a.push(checkbox[index])
                   <input
                     id={input.id}
                     type={input.type}
+                    
                     onChange={handleInput}
                     required
                   />
@@ -225,7 +234,12 @@ a.push(checkbox[index])
               <button type="submit">Send</button>
             </form>
           </div>
-        </div>
+        </div>):(<div className="flex flex-col cursor-pointer  justify-center items-center">
+          <h1 className="font-bold text-3xl ">You are already Donar</h1>
+          <div onClick={()=>setShow(true)}>click here to update data</div>
+          </div>
+
+        )}
       </div>
     </div>
   );
