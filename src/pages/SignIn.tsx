@@ -2,13 +2,12 @@ import {  signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
 
-const Login = () => {
+const Login:React.FC = () => {
   const navigate = useNavigate()
   const [err, setErr] = useState(false)
   const [loading, setLoading] = useState(false)
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault()
 
 

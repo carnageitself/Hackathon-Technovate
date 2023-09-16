@@ -4,6 +4,7 @@ import Header from "./component/Header";
 import Home from "./pages/Home";
 import SignInSide from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Profile from "./pages/Profile";
 function App()  {
 
   return (
@@ -15,8 +16,9 @@ function App()  {
         <Route  path='/' element={  <> <Header/>< Home /></>}></Route>
         <Route  path='/signin' element={< SignInSide />}></Route>
         <Route  path='/signup' element={< SignUp />}></Route>
+        <Route  path='/profile' element={< Profile  />}></Route>
         {/* <Route exact path='/admin' element={< Admin />}></Route> */}
-          <Route path="*" element={<h1>no Page</h1>} />
+          {/* <Route path="*" element={<h1>no Page</h1>} /> */}
       </Routes>
    
 

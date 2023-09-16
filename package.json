@@ -10,11 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@windmill/react-ui": "^0.6.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.9",
     "@mui/styled-engine-sc": "^5.14.9",
+    "@windmill/react-ui": "^0.6.0",
     "firebase": "^10.4.0",
     "hamburger-react": "^2.5.0",
     "install": "^0.13.0",
