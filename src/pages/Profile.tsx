@@ -204,14 +204,14 @@ window.alert("Register As donar Successfully")
   };
 
   return (
-    <div className="new">
-      <div className="newContainer">
-        <div className=" top flex justify-center items-center text-black">
+    <div className="new ">
+      <div className="newContainer ">
+        <div className=" top flex justify-center items-center text-black ">
           <h1 className=" font-bold text-2xl ">Organ Donation Form</h1>
         </div>
-    {  !user.donar?  (<div className="bottom">
+    { show && !user.donar?  (<div className="bottom">
           <div className="right">
-            <form onSubmit={(e) => handleAdd(e)}>
+             <form onSubmit={(e) => handleAdd(e)}>
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
@@ -234,9 +234,9 @@ window.alert("Register As donar Successfully")
               <button type="submit">Send</button>
             </form>
           </div>
-        </div>):(<div className="flex flex-col cursor-pointer  justify-center items-center">
+        </div>):(<div className="flex flex-col  justify-center items-center gap-2">
           <h1 className="font-bold text-3xl ">You are already Donar</h1>
-          <div onClick={()=>setShow(true)}>click here to update data</div>
+          <div onClick={()=>setShow(true)} className="cursor-pointer underline text-blue-400">click here to update data</div>
           </div>
 
         )}

@@ -14,7 +14,9 @@ function Header() {
     
     return (
         <div className='w-screen sm:h-24 h-20 bg-[#FEFEFF] sm:px-28 px-3  flex justify-between items-center'>
+          <Link to="/">
             <img src={logo} alt="" className='h-20' />
+            </Link>
             <div className="sm:hidden flex">
                     <Hamburger size={23} color="#EE619C" rounded onToggle={toggled => {
                         if (toggled) {
@@ -28,7 +30,7 @@ function Header() {
                 <li className='border-b-2 font-semibold text-xl border-[#EE619C] w-20 flex justify-center'> <Link to="/"> Home</Link></li>
 
                 <li className='border-b-2 font-semibold text-xl border-[#EE619C] w-20 flex justify-center'> <Link to="/about"> About</Link></li>
-
+                <li className='border-b-2 font-semibold text-xl border-[#EE619C] w-20 flex justify-center'> <Link to="/contact"> Contact</Link></li>
                 { !currentUser ?
                 (
                   <>
@@ -37,8 +39,8 @@ function Header() {
                 </>)
                 : (
                   <div className="user flex gap-2 justify-center items-center" >
-                        <img src={currentUser?.photoURL ? currentUser?.photoURL : null} alt="" className='w-12 h-12 rounded-full object-contain border'/>
-                        <span className='text-black text-xl'>{currentUser?.displayName}</span>
+                        <img src={currentUser?.photoURL ? currentUser?.photoURL : null} alt="" className='w-8 h-8 rounded-full object-contain border'/>
+                        <span className='text-black text-base uppercase'>{currentUser?.displayName}</span>
                         </div>
                 )
                 }

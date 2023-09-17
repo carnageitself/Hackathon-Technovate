@@ -6,6 +6,7 @@ import SignInSide from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import Contact from "./pages/contact";
+import GuideLines from "./pages/GuideLines";
 function App()  {
 
   return (
@@ -19,6 +20,7 @@ function App()  {
         <Route  path='/signup' element={< SignUp />}></Route>
         <Route  path='/profile' element={<> <Header/>< Profile  /></>}></Route>
         <Route  path='/contact' element={<> <Header/>< Contact /></>}></Route>
+        <Route  path='/guidelines' element={<> <Header/>< GuideLines /></>}></Route>
         {/* <Route exact path='/admin' element={< Admin />}></Route> */}
           {/* <Route path="*" element={<h1>no Page</h1>} /> */}
       </Routes>
