@@ -1,5 +1,7 @@
 import {useState,useContext, useEffect} from "react";
 import CheckBox from "../component/Checkbox";
+import QRCode from "react-qr-code";
+
 import {
     doc,
     setDoc,
@@ -23,6 +25,9 @@ await getDoc(doc(db, "users", currentUser.uid)).then((data)=>{
       }
       unsub()
     },[])
+
+    console.log(user);
+    
 
     const [data, setData] = useState({});
   const inputs = [
@@ -234,9 +239,9 @@ window.alert("Register As donar Successfully")
               <button type="submit">Send</button>
             </form>
           </div>
-        </div>):(<div className="flex flex-col  justify-center items-center gap-2">
+        </div>):(<div className="flex flex-col cursor-pointer   justify-center items-center">
           <h1 className="font-bold text-3xl ">You are already Donar</h1>
-          <div onClick={()=>setShow(true)} className="cursor-pointer underline text-blue-400">click here to update data</div>
+          <div onClick={()=>setShow(true)}>click here to update data</div>
           </div>
 
         )}
