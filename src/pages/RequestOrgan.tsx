@@ -1,16 +1,17 @@
 import {useState,useContext, useEffect} from "react";
 import CheckBox from "../component/Checkbox";
-import QRCode from "react-qr-code";
-
 import {
     doc,
     setDoc,
-    serverTimestamp,
-    updateDoc,  
+    serverTimestamp, 
     getDoc} from "firebase/firestore";
     import {db} from '../firebase'
 import { AuthContext } from "../context/authContext";
 // import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
+
+interface Props {
+  request: object
+}
 
 const RequestOrgan: React.FC = () => {
   const [user,setUser]=useState({})
@@ -18,7 +19,7 @@ const RequestOrgan: React.FC = () => {
 
     useEffect(()=>{
       const unsub=async()=>{
-await getDoc(doc(db, "users", currentUser.uid)).then((data)=>{
+await getDoc(doc(db, "users", currentUser.uid)).then((data:any)=>{
   setUser(data.data());
   
 })
@@ -138,9 +139,6 @@ await getDoc(doc(db, "users", currentUser.uid)).then((data)=>{
    "I agree to the privacy policy"
   ];
 
-const [show,setShow] =useState(false)
-
-
   const handleInput = (e) => {
    
     const id = e.target.id;
@@ -152,7 +150,7 @@ const [show,setShow] =useState(false)
   };
 
   const handleAdd = async(e: any) => {
-    const date = new Date().getTime();
+    // const date = new Date().getTime();
     
      
     e.preventDefault();
@@ -160,10 +158,10 @@ const [show,setShow] =useState(false)
     
 
     const res = await setDoc(doc(db, "users", currentUser.uid), {
-        request:{...data,},
+        request:{...data},
         timeStamp: serverTimestamp(),
        
-      },{merge:true}).then((data)=>{
+      },{merge:true}).then(()=>{
 window.alert("request Submited Successfully")
 
       }).catch((err)=>{

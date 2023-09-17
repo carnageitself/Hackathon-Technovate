@@ -1,5 +1,6 @@
 import Hero from "../component/Hero"
 import Hero1 from "../component/Hero1"
+
 function Home() {
     return (
         <>

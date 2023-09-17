@@ -1,12 +1,10 @@
 import {useState,useContext, useEffect} from "react";
 import CheckBox from "../component/Checkbox";
-import QRCode from "react-qr-code";
 
 import {
     doc,
     setDoc,
     serverTimestamp,
-    updateDoc,  
     getDoc} from "firebase/firestore";
     import {db} from '../firebase'
 import { AuthContext } from "../context/authContext";
@@ -18,7 +16,7 @@ const Profile: React.FC = () => {
 
     useEffect(()=>{
       const unsub=async()=>{
-await getDoc(doc(db, "users", currentUser.uid)).then((data)=>{
+await getDoc(doc(db, "users", currentUser.uid)).then((data:any)=>{
   setUser(data.data());
   
 })
@@ -179,7 +177,7 @@ await getDoc(doc(db, "users", currentUser.uid)).then((data)=>{
 const [show,setShow] =useState(false)
 
 
-  const handleInput = (e) => {
+  const handleInput = (e:any) => {
     const id = e.target.id;
     const value = e.target.value;
 
@@ -197,7 +195,7 @@ const [show,setShow] =useState(false)
         donar:{...data,},
         timeStamp: serverTimestamp(),
        
-      },{merge:true}).then((data)=>{
+      },{merge:true}).then(()=>{
 window.alert("Register As donar Successfully")
 
       }).catch((err)=>{
@@ -212,9 +210,9 @@ window.alert("Register As donar Successfully")
     <div className="new ">
       <div className="newContainer ">
         <div className=" top flex justify-center items-center text-black ">
-          <h1 className=" font-bold text-2xl ">Organ Donation Form</h1>
+          <h1 className=" font-bold text-2xl text-gray-700">Organ Donation Form</h1>
         </div>
-    { show && !user.donar?  (<div className="bottom">
+    { show && !user.donar?  (<div className="bottom bg-slate-200">
           <div className="right">
              <form onSubmit={(e) => handleAdd(e)}>
               {inputs.map((input) => (
@@ -241,7 +239,7 @@ window.alert("Register As donar Successfully")
           </div>
         </div>):(<div className="flex flex-col cursor-pointer   justify-center items-center">
           <h1 className="font-bold text-3xl ">You are already Donar</h1>
-          <div onClick={()=>setShow(true)}>click here to update data</div>
+          <div onClick={()=>setShow((prev)=>!prev)}>click here to update data</div>
           </div>
 
         )}

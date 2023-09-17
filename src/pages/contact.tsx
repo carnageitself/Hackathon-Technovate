@@ -1,12 +1,9 @@
-import { useState } from "react";
+
 // import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-function classNames(...classes:any) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Contact() {
-  const [agreed, setAgreed] = useState(false);
+
   const styles = {
     paddingX: "sm:px-16 px-6",
     paddingY: "sm:py-16 py-6",

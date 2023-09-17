@@ -2,13 +2,14 @@ import {
     VerticalTimeline,
     VerticalTimelineElement,
   } from "react-vertical-timeline-component";
-  import logo from "../assets/Logo.jpg"
+  import logo from "../assets/logo1.png"
   import "react-vertical-timeline-component/style.min.css";
   
 
  const experiences = [
     {
       icon: logo,
+      iconBg: "white",
       points: [
         "Organ donation must be voluntary and without any monetary benefit to the donor."
       ],
@@ -16,6 +17,7 @@ import {
     {
   
       icon: logo,
+      iconBg: "white",
       points: [
       "Organs can be donated by both living and deceased donors."
       ],
@@ -23,7 +25,7 @@ import {
     {
 
       icon: logo,
-     
+      iconBg: "white",
       points: [
        "Organs can be donated to close relatives, such as a spouse, parents, children, siblings, and grandparents. Organs can also be donated to non-related persons with the permission of an Authorization Committee."
       ],
@@ -31,21 +33,21 @@ import {
     {
 
       icon: logo,
-    
+      iconBg: "white",
       points: [
        "The donor must be of sound mind and must give their consent in writing."
       ],
     },
     {
         icon: logo,
-      
+        iconBg: "white",
         points: [
          "Organs can only be removed from a deceased donor after brain death has been declared by two registered medical practitioners."
         ],
       },
       {
         icon: logo,
-      
+        iconBg: "white",
         points: [
          "Organs must be transplanted to the recipient as soon as possible after removal."
         ],
@@ -71,7 +73,7 @@ import {
             <img
               src={experience.icon}
               alt={experience.company_name}
-              className="w-[60%] h-[60%] object-contain"
+              className="rounded-full  object-contain"
             />
           </div>
         }
@@ -104,14 +106,14 @@ import {
     };
   
     return (
-      <div className="bg-gray-100">
+      <div className="bg-slate-200">
         <div>
           <h2 className={`${styles.sectionHeadText} text-center`}>
             Guidelines
           </h2>
         </div>
   
-        <div className="mt-20 flex flex-col">
+        <div className="mt-10 flex flex-col">
           <VerticalTimeline>
             {experiences.map((experience, index) => (
               <ExperienceCard
