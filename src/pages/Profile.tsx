@@ -209,14 +209,14 @@ window.alert("Register As donar Successfully")
   };
 
   return (
-    <div className="new">
-      <div className="newContainer">
-        <div className=" top flex justify-center items-center text-black">
+    <div className="new ">
+      <div className="newContainer ">
+        <div className=" top flex justify-center items-center text-black ">
           <h1 className=" font-bold text-2xl ">Organ Donation Form</h1>
         </div>
-    {  !user.donar?  (<div className="bottom">
+    { show && !user.donar?  (<div className="bottom">
           <div className="right">
-            <form onSubmit={(e) => handleAdd(e)}>
+             <form onSubmit={(e) => handleAdd(e)}>
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
@@ -241,41 +241,7 @@ window.alert("Register As donar Successfully")
           </div>
         </div>):(<div className="flex flex-col cursor-pointer   justify-center items-center">
           <h1 className="font-bold text-3xl ">You are already Donar</h1>
-          <div className="w-[50%]" onClick={()=>setShow(true)}> <br></br>
-          <h3 className="font-semibold text-center text-xl">
-          `Dear ,{user?.displayName}
-Thank you for your selfless gift of organ donation. Your generosity will give new life and hope to others in need.`
-</h3></div>
-<div className="container p-3 flex justify-center items-center  mt-10 ">
-
-		<div className="w-72 p-3 bg-gradient-to-r from-red-300 to-red-700 shadow-lg shadow-black rounded-lg">
-			<h1 className="text-2xl font-semibold text-gray-100 pb-4">{user?.donar['First Name']}{user?.donar['Middle Name']}{user?.donar['Last Name']}</h1>
-
-			<span className="text-xs  text-gray-200 shadow-2xl">{user?.displayName}</span>
-
-
-			<div className="flex justify-between items-center pt-4">
-
-				<div className="flex flex-col">
-					<span className="text-xs text-gray-300 font-bold">1234 4567 8901 2345</span>
-					<span className="text-xs text-gray-300 font-bold">09/23</span>
-				</div>
-        <div className="border-2 border-black" style={{ height: "auto", margin: "0 auto", maxWidth: 70, width: "100%" }}>
-        <QRCode
-    size={256}
-    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-    value={"this is card"}
-    viewBox={`0 0 256 256`}
-    />
-    </div>
-				
-				
-			</div>
-			
-		</div>
-		
-	</div>
-
+          <div onClick={()=>setShow(true)}>click here to update data</div>
           </div>
 
         )}
