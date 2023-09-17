@@ -1,5 +1,7 @@
 import {useState,useContext, useEffect} from "react";
 import CheckBox from "../component/Checkbox";
+import QRCode from "react-qr-code";
+
 import {
     doc,
     setDoc,
@@ -23,6 +25,9 @@ await getDoc(doc(db, "users", currentUser.uid)).then((data)=>{
       }
       unsub()
     },[])
+
+    console.log(user);
+    
 
     const [data, setData] = useState({});
   const inputs = [
@@ -234,9 +239,43 @@ window.alert("Register As donar Successfully")
               <button type="submit">Send</button>
             </form>
           </div>
-        </div>):(<div className="flex flex-col cursor-pointer  justify-center items-center">
+        </div>):(<div className="flex flex-col cursor-pointer   justify-center items-center">
           <h1 className="font-bold text-3xl ">You are already Donar</h1>
-          <div onClick={()=>setShow(true)}>click here to update data</div>
+          <div className="w-[50%]" onClick={()=>setShow(true)}> <br></br>
+          <h3 className="font-semibold text-center text-xl">
+          `Dear ,{user?.displayName}
+Thank you for your selfless gift of organ donation. Your generosity will give new life and hope to others in need.`
+</h3></div>
+<div className="container p-3 flex justify-center items-center  mt-10 ">
+
+		<div className="w-72 p-3 bg-gradient-to-r from-red-300 to-red-700 shadow-lg shadow-black rounded-lg">
+			<h1 className="text-2xl font-semibold text-gray-100 pb-4">{user?.donar['First Name']}{user?.donar['Middle Name']}{user?.donar['Last Name']}</h1>
+
+			<span className="text-xs  text-gray-200 shadow-2xl">{user?.displayName}</span>
+
+
+			<div className="flex justify-between items-center pt-4">
+
+				<div className="flex flex-col">
+					<span className="text-xs text-gray-300 font-bold">1234 4567 8901 2345</span>
+					<span className="text-xs text-gray-300 font-bold">09/23</span>
+				</div>
+        <div className="border-2 border-black" style={{ height: "auto", margin: "0 auto", maxWidth: 70, width: "100%" }}>
+        <QRCode
+    size={256}
+    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+    value={"this is card"}
+    viewBox={`0 0 256 256`}
+    />
+    </div>
+				
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
           </div>
 
         )}

@@ -6,6 +6,7 @@ import SignInSide from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import Contact from "./pages/contact";
+import RequestOrgan from "./pages/RequestOrgan";
 function App()  {
 
   return (
@@ -18,6 +19,7 @@ function App()  {
         <Route  path='/signin' element={< SignInSide />}></Route>
         <Route  path='/signup' element={< SignUp />}></Route>
         <Route  path='/profile' element={<> <Header/>< Profile  /></>}></Route>
+        <Route  path='/request' element={<> <Header/>< RequestOrgan  /></>}></Route>
         <Route  path='/contact' element={<> <Header/>< Contact /></>}></Route>
         {/* <Route exact path='/admin' element={< Admin />}></Route> */}
           {/* <Route path="*" element={<h1>no Page</h1>} /> */}
