@@ -58,9 +58,9 @@ import {
         contentStyle={{
           background: "#fff",
           color: "#121212",
-          border: "1px solid gray"
+          border: "1px solid #EE619C"
         }}
-        contentArrowStyle={{ borderRight: "7px solid #121212" }}
+        contentArrowStyle={{ borderRight: "7px solid #EE619C" }}
         date={experience.date}
         iconStyle={{ background: experience.iconBg }}
         icon={
@@ -76,21 +76,6 @@ import {
           </div>
         }
       >
-        <div>
-          <h3
-            className="text-white text-[24px] font-bold cursor-pointer"
-           
-          >
-            {experience.title}
-          </h3>
-          <p
-            className="text-blue-100 text-[16px] font-semibold"
-            style={{ margin: 0 }}
-          >
-            {experience.company_name}
-          </p>
-        </div>
-  
         <ul className="mt-5 list-disc ml-5 space-y-2">
           {experience.points.map((item:any, index:Number) => (
             <li

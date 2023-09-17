@@ -5,7 +5,7 @@ import { AuthContext } from '../context/authContext'
 function Hero() {
   const {currentUser} =useContext(AuthContext)
   return (
-    <div className='flex sm:flex-row flex-col justify-between sm:px-28   px-3  items-center '>
+    <div className='flex sm:flex-row flex-col justify-between sm:px-28   px-3  items-center'>
     <img src={hero} className='sm:h-full sm:w-full w-full' alt="" />
     <div className=" p-8 flex flex-col sm:gap-4 gap-2 justify-center items-center sm:text-left text-center">
         <h1 className='font-bold sm:text-4xl text-xl    '>Your organs can save up to eight lives.</h1>

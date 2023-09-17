@@ -7,6 +7,8 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import Contact from "./pages/contact";
 import GuideLines from "./pages/GuideLines";
+import RequestOrgan from "./pages/RequestOrgan";
+import About from "./pages/About";
 function App()  {
 
   return (
@@ -22,6 +24,7 @@ function App()  {
         <Route  path='/request' element={<> <Header/>< RequestOrgan  /></>}></Route>
         <Route  path='/contact' element={<> <Header/>< Contact /></>}></Route>
         <Route  path='/guidelines' element={<> <Header/>< GuideLines /></>}></Route>
+        <Route  path='/about' element={<> <Header/>< About /></>}></Route>
         {/* <Route exact path='/admin' element={< Admin />}></Route> */}
           {/* <Route path="*" element={<h1>no Page</h1>} /> */}
       </Routes>
